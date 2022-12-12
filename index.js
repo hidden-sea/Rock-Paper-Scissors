@@ -1,85 +1,33 @@
-const choices=["rock", "paper", "scissor"];
-let winner;
+"use strict";
+const choices = ["rock", "paper", "scissor"];
 
-function getComputerChoice () {
-    const randomIndex= Math.floor(Math.random ()* 3);
-    return choices[randomIndex];
+function getComputerChoice() {
+  const randomIndex = Math.floor(Math.random() * 3);
+  return choices[randomIndex];
 }
+//calling a function, use extra parenthsis so it will return value and not print itself
+//console.log(getComputerChoice());
 
-
-function getUserChoice() {
-    const userSelection=prompt ("Choose your weapon");
-    return userSelection.toLowerCase ();
-}
+const getPlayerChoice = prompt("What will you choose?");
 
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === "paper" && computerSelection === "scissors") {
-    console.log("You lose, scissors beats paper");
-    winner = "Computer";
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
-    console.log("You win, paper beats rock");
-    winner = "Player";
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    console.log("You win, scissors beats paper");
-    winner = "Player";
-  } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    console.log("You lose, rock beats scissors");
-    winner = "Computer";
+  if (playerSelection === "rock" && computerSelection === "scissor") {
+    console.log("player wins; rock beats scissor");
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    console.log("You lose, paper beats rock");
-    winner = "Computer";
-  } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    console.log("You win, rock beats scissors");
-    winner = "Player";
+    console.log("computer wins; paper beats rock");
+  } else if (playerSelection === "scissor" && computerSelection === "rock") {
+    console.log("computer wins; rock beats scissor");
+  } else if (playerSelection === "scissor" && computerSelection === "paper") {
+    console.log("player wins.scissor beats paper");
+  } else if (playerSelection === "paper" && computerSelection === "rock") {
+    console.log("player wins. paper beats rock");
+  } else if (playerSelection === "paper" && computerSelection === "scissor") {
+    console.log("computer wins. scissor beats paper");
   } else {
-    console.log(`Tie, you both choose ${playerSelection}`);
+    console.log("its a draw");
   }
-  return winner;
 }
-
-
-// function game (){
-//     let playerScore = 0;
-//     let computerScore = 0;
-//     for(let i = 0; i<5; i++) {
-//         const playerSelection= getUserChoice ();
-//         const computerSelection= getComputerChoice ();
-//         playRound(playerSelection, computerSelection);
-//         if (winner ==="player") {
-//             playerScore++;
-//         } else if (winner==="computer") {
-//             computerScore++;
-//     }
-// }
-//     console.log(
-//     `your score is ${playerScore} and computer score is ${computerScore}`);
-//     return playerScore>computerScore
-//     ?"Player is a winner"
-//     :"Computer is a winner"
-// }
-
-
-// console.log(game(5));
-//function for the game with score track and winner declaration
- function game() {
-   let playerScore = 0;
-  let computerScore = 0;
-  for (let i = 0; i < 5; i++) {
-     const playerSelection = getUserChoice();
-   const computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
-    if (winner === "Player") {
-       playerScore++;
-   } else if (winner === "Computer") {
-      computerScore++;
-    }
-   }
-  console.log(
-    `Your score is ${playerScore} and computer score is ${computerScore}`
-  );
- return playerScore > computerScore
-    ? "Player is a Winner"
-     : "Computer is a Winner";
- }
-
- console.log(game(3));
+const playerSelection = getPlayerChoice;
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
+//make sure to define the two parameters in playround() or the parameters will default to undefined
