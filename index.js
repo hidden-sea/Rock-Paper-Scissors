@@ -1,5 +1,7 @@
 "use strict";
 const choices = ["rock", "paper", "scissor"];
+let computerScore;
+let playerScore;
 
 function getComputerChoice() {
   const randomIndex = Math.floor(Math.random() * 3);
@@ -14,16 +16,22 @@ function getPlayerChoice() {
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "scissor") {
+    playerScore++;
     console.log("player wins; rock beats scissor");
   } else if (playerSelection === "rock" && computerSelection === "paper") {
+    computerScore++;
     console.log("computer wins; paper beats rock");
   } else if (playerSelection === "scissor" && computerSelection === "rock") {
+    computerScore++;
     console.log("computer wins; rock beats scissor");
   } else if (playerSelection === "scissor" && computerSelection === "paper") {
+    playerScore++;
     console.log("player wins.scissor beats paper");
   } else if (playerSelection === "paper" && computerSelection === "rock") {
+    playerScore++;
     console.log("player wins. paper beats rock");
   } else if (playerSelection === "paper" && computerSelection === "scissor") {
+    computerScore++;
     console.log("computer wins. scissor beats paper");
   } else {
     console.log("its a draw");
@@ -31,6 +39,8 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+  playerScore = 0;
+  computerScore = 0;
   for (let i = 1; i <= 5; i++) {
     const playerSelection = getPlayerChoice();
     const computerSelection = getComputerChoice();
@@ -39,3 +49,6 @@ function game() {
 }
 //make sure to define the two parameters in playround() or the parameters will default to undefined
 console.log(game(5));
+if (playerScore < computerScore) {
+  console.log("computer is the winner");
+} else console.log("player is the winner");
