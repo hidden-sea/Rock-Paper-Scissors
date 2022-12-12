@@ -8,7 +8,9 @@ function getComputerChoice() {
 //calling a function, use extra parenthsis so it will return value and not print itself
 //console.log(getComputerChoice());
 
-const getPlayerChoice = prompt("What will you choose?");
+function getPlayerChoice() {
+  return prompt("What will you choose?").toLowerCase();
+}
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "scissor") {
@@ -30,7 +32,7 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
   for (let i = 1; i <= 5; i++) {
-    const playerSelection = getPlayerChoice;
+    const playerSelection = getPlayerChoice();
     const computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
   }
