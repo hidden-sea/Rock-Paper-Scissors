@@ -27,7 +27,13 @@ function playRound(playerSelection, computerSelection) {
     console.log("its a draw");
   }
 }
-const playerSelection = getPlayerChoice;
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+
+function game() {
+  for (let i = 1; i <= 5; i++) {
+    const playerSelection = getPlayerChoice;
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+  }
+}
 //make sure to define the two parameters in playround() or the parameters will default to undefined
+console.log(game(5));
