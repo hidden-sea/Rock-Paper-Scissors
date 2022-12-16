@@ -2,6 +2,7 @@
 const choices = ["rock", "paper", "scissor"];
 let computerScore;
 let playerScore;
+//define variablies in gloabal scop if they are listed in more than one function
 
 function getComputerChoice() {
   const randomIndex = Math.floor(Math.random() * 3);
