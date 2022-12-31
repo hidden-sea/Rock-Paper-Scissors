@@ -11,7 +11,6 @@ const outcome = document.querySelector(".outcome");
 const outcome1 = document.querySelector(".outcome1");
 const content1 = document.createElement("div");
 const content2 = document.createElement("div");
-
 //remember to place in hashtags in the parenthesis
 
 //define variablies in global scope if they are listed in more than one function
@@ -88,13 +87,13 @@ function playRound(playerSelection, computerSelection) {
     containers.appendChild(content);
   }
 }
+
 function checkWinner(playerScore, computerScore) {
   if (playerScore === 5) {
-    content.textContent = "You Win!";
+    content.textContent = `You Win! You beat the computer ${playerScore} to ${computerScore}!`;
     containers.appendChild(content);
-    //result_p.innerHTML = "You win>";
   } else if (computerScore === 5) {
-    content.textContent = "You lose!";
+    content.textContent = `You lose! You lost to the computer ${playerScore} to ${computerScore}.`;
     containers.appendChild(content);
   }
 }
